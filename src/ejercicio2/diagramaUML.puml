@@ -1,0 +1,80 @@
+@startuml
+class ClienteECommerce {
+  - nombre: String
+  - numeroCliente: int
+  - historialCompras: List<Obra>
+  - recomendaciones: Map<String, List<Obra>>
+
+  + ClienteECommerce(nombre: String, numeroCliente: int)
+  + getNombre(): String
+  + setNombre(nombre: String)
+  + getNumeroCliente(): int
+  + setNumeroCliente(numeroCliente: int)
+  + getHistorialCompras(): List<Obra>
+  + setHistorialCompras(historialCompras: List<Obra>)
+  + getRecomendaciones(): Map<String, List<Obra>>
+  + setRecomendaciones(recomendaciones: Map<String, List<Obra>>)
+  + agregarCompra(obra: Obra): void
+  + mostrarHistorialCompras(): void
+  + generarRecomendaciones(): void
+  - actualizarRecomendaciones(): void
+  - obtenerCategoria(obra: Obra): String
+}
+
+class TiendaECommerce {
+  - clientes: List<ClienteECommerce>
+  - obras: List<Obra>
+  - pedidos: List<Pedido>
+  - contadorClientes: AtomicInteger
+
+  + TiendaECommerce()
+  + inicializarDatos(): void
+  + agregarCliente(cliente: ClienteECommerce): void
+  + mostrarClientes(): void
+  + buscarCliente(numeroCliente: int): ClienteECommerce
+  + generarNumeroCliente(): int
+  + agregarObra(obra: Obra): void
+  + mostrarObras(): void
+  + buscarObra(titulo: String): Obra
+  + realizarPedido(pedido: Pedido): void
+}
+
+class Obra {
+  - titulo: String
+  - precio: double
+
+  + Obra(titulo: String, precio: double)
+  + getTitulo(): String
+  + setTitulo(titulo: String)
+  + getPrecio(): double
+  + setPrecio(precio: double)
+}
+
+class Libro {
+  - autor: String
+
+  + Libro(titulo: String, precio: double, autor: String)
+  + getAutor(): String
+}
+
+class Video {
+  - director: String
+
+  + Video(titulo: String, precio: double, director: String)
+  + getDirector(): String
+}
+
+class Pedido {
+  - cliente: ClienteECommerce
+  - obras: List<Obra>
+
+  + Pedido(cliente: ClienteECommerce)
+  + agregarObra(obra: Obra): void
+}
+
+class Main {
+  + main(String[] args): void
+  + iniciarSesionOCrearCuenta(tienda: TiendaECommerce, scanner: Scanner): ClienteECommerce
+  + realizarPedido(cliente: ClienteECommerce, tienda: TiendaECommerce, scanner: Scanner): void
+}
+@enduml
