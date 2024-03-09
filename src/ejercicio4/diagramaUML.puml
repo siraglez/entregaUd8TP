@@ -1,0 +1,28 @@
+@startuml
+class CuadriculaVirtual {
+    - tableroHumano: char[][]
+    - tableroIA: char[][]
+    - filas: int
+    - columnas: int
+    - scanner: Scanner
+    - turnos: int
+
+    + CuadriculaVirtual(filas: int, columnas: int)
+    + inicializarTableros(): void
+    + jugar(): void
+    + turnoHumano(): void
+    + turnoIA(): void
+    + esMovimientoValido(fila: int, columna: int, tablero: char[][]): boolean
+    + esAtaqueExitoso(fila: int, columna: int, tablero: char[][]): boolean
+    + juegoTerminado(): boolean
+    + visualizar(): void
+    + imprimirTablero(tablero: char[][]): void
+    + adaptarEstrategias(): void
+}
+
+class GuerraBarcosAvanzada {
+    + main(args: String[]): void
+}
+
+CuadriculaVirtual --|> GuerraBarcosAvanzada
+@enduml
