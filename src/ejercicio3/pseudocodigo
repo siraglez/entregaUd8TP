@@ -1,0 +1,20 @@
+Clase CuadriculaIA:
+    - tablero: char[][]
+    - simulacionAmbiental: int[][]
+    - random: Random
+
+    + CuadriculaIA(filas: int, columnas: int)
+    + mostrarTablero(): void
+    + depositarBarco(fila: int, columna: int, longitud: int, esHorizontal: boolean): void
+    + posicionarBarcoIA(longitud: int): void
+    + disparar(fila: int, columna: int): void
+    + ataqueIA(): void
+    + visualizacion(): void
+    - esPosicionValida(fila: int, columna: int): boolean
+    - esPosicionValidaParaBarco(fila: int, columna: int, longitud: int, esHorizontal: boolean): boolean
+
+Clase JuegoNavalIA:
+    - scanner: Scanner
+    - cuadricula: CuadriculaIA
+
+    + main(args: String[]): void
