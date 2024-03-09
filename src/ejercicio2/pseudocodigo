@@ -1,0 +1,73 @@
+Clase ClienteECommerce:
+    Atributos:
+        - nombre: String
+        - numeroCliente: int
+        - historialCompras: Lista de Obra
+        - recomendaciones: Mapa de (String, Lista de Obra)
+
+    Método ClienteECommerce(nombre: String, numeroCliente: int):
+        Asignar nombre y numeroCliente
+        Inicializar historialCompras como Lista vacía
+        Inicializar recomendaciones como Mapa vacío
+
+    Método getNombre(): String:
+        Devolver nombre
+
+    Método setNombre(nombre: String):
+        Asignar nombre
+
+    Método getNumeroCliente(): int:
+        Devolver numeroCliente
+
+    Método setNumeroCliente(numeroCliente: int):
+        Asignar numeroCliente
+
+    Método getHistorialCompras(): Lista de Obra:
+        Devolver historialCompras
+
+    Método setHistorialCompras(historialCompras: Lista de Obra):
+        Asignar historialCompras
+
+    Método getRecomendaciones(): Mapa de (String, Lista de Obra):
+        Devolver recomendaciones
+
+    Método setRecomendaciones(recomendaciones: Mapa de (String, Lista de Obra)):
+        Asignar recomendaciones
+
+    Método agregarCompra(obra: Obra):
+        Añadir obra a historialCompras
+        Llamar a actualizarRecomendaciones
+
+    Método mostrarHistorialCompras():
+        Imprimir "Historial de compras de nombre:"
+        Si historialCompras está vacío:
+            Imprimir "El cliente no ha realizado compras."
+        Sino:
+            Para cada obra en historialCompras:
+                Imprimir "- Título: obra.titulo | Precio: $obra.precio"
+
+    Método generarRecomendaciones():
+        Imprimir "Recomendaciones para nombre:"
+        Para cada categoría en las claves de recomendaciones:
+            Imprimir "Categoría: categoría"
+            Obtener obrasRecomendadas de recomendaciones para la categoría
+            Para cada obra en obrasRecomendadas:
+                Imprimir "- Título: obra.titulo"
+
+    Método privado actualizarRecomendaciones():
+        Limpiar recomendaciones
+        Agrupar obrasPorCategoria por categoría en historialCompras
+        Obtener categoríasOrdenadas por frecuencia de compra en obrasPorCategoria
+        Para cada categoría en categoríasOrdenadas:
+            Si recomendaciones no contiene la categoría:
+                Obtener obrasRecomendadas de obrasPorCategoria para la categoría
+                Mezclar obrasRecomendadas para variedad
+                Añadir las primeras 3 obrasRecomendadas o todas si hay menos de 3 a recomendaciones
+
+    Método privado obtenerCategoria(obra: Obra): String:
+        Si obra es instancia de Libro:
+            Devolver "Libros"
+        Sino si obra es instancia de Video:
+            Devolver "Videos"
+        Sino:
+            Devolver "Otras categorías"
