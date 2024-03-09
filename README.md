@@ -180,3 +180,141 @@ Clase JuegoNavalIA:
     + main(args: String[]): void
 
 ```
+
+
+# Ejercicio 4: Guerra de Barcos Avanzada: Desafío Humano vs. Máquina en un mundo Virtual
+
+Este código implementa el juego de Guerra de Barcos Avanzada, donde un jugador humano se enfrenta a una IA en un entorno virtual.
+
+## 1. Clase `CuadriculaVirtual`
+
+### 1.1. Atributos:
+
+- `tableroHumano` y `tableroIA`: Representan los tableros del jugador humano y la IA respectivamente.
+- `filas` y `columnas`: Definen las dimensiones de los tableros.
+- `scanner`: Objeto Scanner para la entrada del usuario.
+- `turnos`: Contador de turnos del juego.
+
+### 1.2. Métodos:
+
+- `CuadriculaVirtual(int filas, int columnas)`: Constructor que inicializa los tableros, el scanner y otros atributos.
+- `inicializarTableros()`: Inicializa los tableros con agua, marcado como '0'.
+- `jugar()`: Implementa la lógica principal del juego. Alterna los turnos del jugador humano y la IA hasta que se cumple la condición de juego terminado.
+- `turnoHumano()`: Lógica para que el jugador humano realice un movimiento, solicita la entrada de filas y columnas, y actualiza el tablero correspondiente.
+- `turnoIA()`: Lógica para que la IA realice un movimiento con estrategia de movimientos aleatorios.
+- `esMovimientoValido(int fila, int columna, char[][] tablero)`: Verifica si la posición no ha sido atacada previamente.
+- `esAtaqueExitoso(int fila, int columna, char[][] tablero)`: Verifica si la posición contiene un barco del oponente.
+- `juegoTerminado()`: Determina si el juego ha terminado, basado en el número de turnos.
+- `visualizar()`: Muestra en consola los tableros del jugador humano y la IA.
+- `imprimirTablero(char[][] tablero)`: Imprime un tablero en la consola.
+- `adaptarEstrategias()`: Método vacío para adaptar estrategias basadas en el juego humano.
+
+## 2. Clase `GuerraBarcosAvanzada`
+
+### 2.1. Método `main(String[] args)`:
+
+- Crea una instancia de `CuadriculaVirtual` con una cuadrícula de 5x5.
+- Muestra los tableros antes de comenzar el juego.
+- Juega el juego llamando al método `jugar()` de la instancia.
+- Muestra los tableros después de terminar el juego.
+- Intenta adaptar las estrategias basadas en el juego humano llamando al método `adaptarEstrategias()`.
+
+En resumen, este código implementa una versión básica del juego de Guerra de Barcos Avanzada, donde el jugador humano y la IA realizan turnos para atacar las posiciones enemigas, y se determina la victoria cuando se hunden todos los barcos del oponente o después de un número fijo de turnos.
+
+# Pseudocódigo
+
+```java
+Clase CuadriculaVirtual:
+    Atributos:
+        - tableroHumano: arreglo bidimensional de caracteres para el jugador humano
+        - tableroIA: arreglo bidimensional de caracteres para la IA
+        - filas: número de filas en el tablero
+        - columnas: número de columnas en el tablero
+        - scanner: objeto Scanner para entrada del usuario
+        - turnos: contador de turnos del juego
+
+    Método CuadriculaVirtual(filas, columnas):
+        Asignar filas y columnas
+        Inicializar tableros, scanner y otros atributos llamando a inicializarTableros()
+
+    Método inicializarTableros():
+        // Inicializar tableros con agua, marcada por '0'
+        Para cada fila de 0 hasta filas - 1:
+            Para cada columna de 0 hasta columnas - 1:
+                tableroHumano[fila][columna] = '0'
+                tableroIA[fila][columna] = '0'
+
+    Método jugar():
+        Imprimir mensaje de bienvenida
+        Mientras no juegoTerminado():
+            turnoHumano()
+            Si no juegoTerminado():
+                turnoIA()
+            Incrementar turnos
+            Visualizar()
+
+        Imprimir mensaje de juego terminado
+
+    Método turnoHumano():
+        Imprimir mensaje de turno humano
+        Solicitar entrada de fila y columna al usuario
+        Leer fila y columna desde el scanner
+
+        Si esMovimientoValido(fila, columna, tableroIA):
+            Si esAtaqueExitoso(fila, columna, tableroIA):
+                Imprimir mensaje de ataque exitoso y hundimiento de barco
+                tableroIA[fila][columna] = 'X' // Marcador para ataque exitoso
+            Sino:
+                Imprimir mensaje de ataque exitoso sin hundimiento
+            tableroIA[fila][columna] = 'A' // Marcador para hueco atacado con agua
+        Sino:
+            Imprimir mensaje de ataque fallido y marcar hueco con agua
+
+    Método turnoIA():
+        Imprimir mensaje de turno de la IA
+        Crear objeto Random
+        Inicializar variables fila y columna
+
+        Hacer mientras no esMovimientoValido(fila, columna, tableroHumano):
+            Generar valores aleatorios para fila y columna
+
+        Imprimir mensaje de ataque de la IA en posición (fila, columna)
+
+        Si esAtaqueExitoso(fila, columna, tableroHumano):
+            Imprimir mensaje de ataque exitoso para la IA
+            tableroHumano[fila][columna] = 'X' // Marcador para ataque exitoso
+        Sino:
+            Imprimir mensaje de fallo de ataque para la IA
+            tableroHumano[fila][columna] = 'A' // Marcador para hueco atacado con agua
+
+    Método esMovimientoValido(fila, columna, tablero):
+        Retornar verdadero si la posición no ha sido atacada previamente ('0')
+
+    Método esAtaqueExitoso(fila, columna, tablero):
+        Retornar verdadero si la posición contiene un barco del oponente ('B')
+
+    Método juegoTerminado():
+        Retornar verdadero si los turnos son mayores o iguales a 10
+
+    Método visualizar():
+        Imprimir tablero del jugador humano llamando a imprimirTablero(tableroHumano)
+        Imprimir tablero de la IA llamando a imprimirTablero(tableroIA)
+
+    Método imprimirTablero(tablero):
+        Para cada fila de 0 hasta filas - 1:
+            Para cada columna de 0 hasta columnas - 1:
+                Imprimir elemento del tablero y espacio
+            Imprimir nueva línea
+
+    Método adaptarEstrategias():
+        // Método vacío para adaptar estrategias basadas en el juego humano
+
+Clase GuerraBarcosAvanzada:
+    Método main(args):
+        Crear instancia de CuadriculaVirtual con 5 filas y 5 columnas
+        Mostrar tableros antes de comenzar
+        Jugar el juego llamando al método jugar() de la instancia
+        Mostrar tableros después de terminar el juego
+        Intentar adaptar estrategias basadas en el juego humano llamando a adaptarEstrategias()
+
+```

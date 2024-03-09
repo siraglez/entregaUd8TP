@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15ca5a73-b21f-474e-8d6f-72a9203d26d6" name="Changes" comment="readme ejercicio2">
+    <list default="true" id="15ca5a73-b21f-474e-8d6f-72a9203d26d6" name="Changes" comment="readme ejercicio3">
       <change afterPath="$PROJECT_DIR$/src/ejercicio1/JugadorGuerraAR.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/ejercicio1/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ejercicio3/CuadriculaIA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ejercicio3/JuegoNavalIA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ejercicio4/CuadriculaVirtual.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ejercicio4/GuerraBarcosAvanzada.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +43,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.GuerraBarcosAvanzada.executor": "Run",
     "Application.JuegoNavalIA.executor": "Run",
     "Application.Main.executor": "Run",
     "DefaultPlantUmlFileTemplate": "UML Class",
@@ -84,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709662892142</updated>
-      <workItem from="1709662893163" duration="18523000" />
+      <workItem from="1709662893163" duration="21654000" />
     </task>
     <task id="LOCAL-00001" summary="crear repositorio">
       <option name="closed" value="true" />
@@ -134,7 +135,39 @@
       <option name="project" value="LOCAL" />
       <updated>1710001620739</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="codigo ejercicio3">
+      <option name="closed" value="true" />
+      <created>1710007370268</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710007370268</updated>
+    </task>
+    <task id="LOCAL-00008" summary="pseudocodigo ejercicio3">
+      <option name="closed" value="true" />
+      <created>1710007383944</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1710007383944</updated>
+    </task>
+    <task id="LOCAL-00009" summary="diagrama ejercicio3">
+      <option name="closed" value="true" />
+      <created>1710007401781</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1710007401781</updated>
+    </task>
+    <task id="LOCAL-00010" summary="readme ejercicio3">
+      <option name="closed" value="true" />
+      <created>1710007414744</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1710007414745</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +180,10 @@
     <MESSAGE value="pseudocodigo ejercicio1" />
     <MESSAGE value="diagrama ejercicio2" />
     <MESSAGE value="readme ejercicio2" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme ejercicio2" />
+    <MESSAGE value="codigo ejercicio3" />
+    <MESSAGE value="pseudocodigo ejercicio3" />
+    <MESSAGE value="diagrama ejercicio3" />
+    <MESSAGE value="readme ejercicio3" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme ejercicio3" />
   </component>
 </project>
