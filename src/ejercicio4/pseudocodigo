@@ -1,0 +1,92 @@
+Clase CuadriculaVirtual:
+    Atributos:
+        - tableroHumano: arreglo bidimensional de caracteres para el jugador humano
+        - tableroIA: arreglo bidimensional de caracteres para la IA
+        - filas: número de filas en el tablero
+        - columnas: número de columnas en el tablero
+        - scanner: objeto Scanner para entrada del usuario
+        - turnos: contador de turnos del juego
+
+    Método CuadriculaVirtual(filas, columnas):
+        Asignar filas y columnas
+        Inicializar tableros, scanner y otros atributos llamando a inicializarTableros()
+
+    Método inicializarTableros():
+        // Inicializar tableros con agua, marcada por '0'
+        Para cada fila de 0 hasta filas - 1:
+            Para cada columna de 0 hasta columnas - 1:
+                tableroHumano[fila][columna] = '0'
+                tableroIA[fila][columna] = '0'
+
+    Método jugar():
+        Imprimir mensaje de bienvenida
+        Mientras no juegoTerminado():
+            turnoHumano()
+            Si no juegoTerminado():
+                turnoIA()
+            Incrementar turnos
+            Visualizar()
+
+        Imprimir mensaje de juego terminado
+
+    Método turnoHumano():
+        Imprimir mensaje de turno humano
+        Solicitar entrada de fila y columna al usuario
+        Leer fila y columna desde el scanner
+
+        Si esMovimientoValido(fila, columna, tableroIA):
+            Si esAtaqueExitoso(fila, columna, tableroIA):
+                Imprimir mensaje de ataque exitoso y hundimiento de barco
+                tableroIA[fila][columna] = 'X' // Marcador para ataque exitoso
+            Sino:
+                Imprimir mensaje de ataque exitoso sin hundimiento
+            tableroIA[fila][columna] = 'A' // Marcador para hueco atacado con agua
+        Sino:
+            Imprimir mensaje de ataque fallido y marcar hueco con agua
+
+    Método turnoIA():
+        Imprimir mensaje de turno de la IA
+        Crear objeto Random
+        Inicializar variables fila y columna
+
+        Hacer mientras no esMovimientoValido(fila, columna, tableroHumano):
+            Generar valores aleatorios para fila y columna
+
+        Imprimir mensaje de ataque de la IA en posición (fila, columna)
+
+        Si esAtaqueExitoso(fila, columna, tableroHumano):
+            Imprimir mensaje de ataque exitoso para la IA
+            tableroHumano[fila][columna] = 'X' // Marcador para ataque exitoso
+        Sino:
+            Imprimir mensaje de fallo de ataque para la IA
+            tableroHumano[fila][columna] = 'A' // Marcador para hueco atacado con agua
+
+    Método esMovimientoValido(fila, columna, tablero):
+        Retornar verdadero si la posición no ha sido atacada previamente ('0')
+
+    Método esAtaqueExitoso(fila, columna, tablero):
+        Retornar verdadero si la posición contiene un barco del oponente ('B')
+
+    Método juegoTerminado():
+        Retornar verdadero si los turnos son mayores o iguales a 10
+
+    Método visualizar():
+        Imprimir tablero del jugador humano llamando a imprimirTablero(tableroHumano)
+        Imprimir tablero de la IA llamando a imprimirTablero(tableroIA)
+
+    Método imprimirTablero(tablero):
+        Para cada fila de 0 hasta filas - 1:
+            Para cada columna de 0 hasta columnas - 1:
+                Imprimir elemento del tablero y espacio
+            Imprimir nueva línea
+
+    Método adaptarEstrategias():
+        // Método vacío para adaptar estrategias basadas en el juego humano
+
+Clase GuerraBarcosAvanzada:
+    Método main(args):
+        Crear instancia de CuadriculaVirtual con 5 filas y 5 columnas
+        Mostrar tableros antes de comenzar
+        Jugar el juego llamando al método jugar() de la instancia
+        Mostrar tableros después de terminar el juego
+        Intentar adaptar estrategias basadas en el juego humano llamando a adaptarEstrategias()
