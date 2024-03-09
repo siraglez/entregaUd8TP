@@ -119,3 +119,64 @@ Clase ClienteECommerce:
             Devolver "Otras categorías"
 
 ```
+
+
+# Ejercicio 3: Juego de Estrategia Naval con Inteligencia Artificial y Simulación de Entornos Marinos
+
+## 1. Clase CuadriculaIA
+
+La clase `CuadriculaIA` representa un juego de estrategia naval con inteligencia artificial y simulación de entornos marinos.
+
+### 1.1. Atributos
+
+- `tablero`: Matriz para representar el tablero de juego.
+- `simulacionAmbiental`: Matriz para simular condiciones marinas.
+- `random`: Objeto de la clase `Random` utilizado para generar números aleatorios.
+
+### 1.2. Métodos
+
+- `mostrarTablero()`: Muestra el estado actual del tablero con índices de fila y columna.
+- `depositarBarco(int fila, int columna, int longitud, boolean esHorizontal)`: Coloca un barco en la posición dada en el tablero.
+- `posicionarBarcoIA(int longitud)`: Posiciona automáticamente un barco en el tablero utilizando inteligencia artificial.
+- `disparar(int fila, int columna)`: Simula un disparo en la posición dada y actualiza el tablero.
+- `ataqueIA()`: Estrategia de ataque automático por parte de la IA.
+- `visualizacion()`: Muestra el estado actual del tablero sin formato específico.
+
+### 1.3. Métodos Privados
+
+- `esPosicionValida(int fila, int columna)`: Verifica si una posición dada es válida en el tablero.
+- `esPosicionValidaParaBarco(int fila, int columna, int longitud, boolean esHorizontal)`: Verifica si es válida para colocar un barco.
+
+## 2. Clase JuegoNavalIA
+
+La clase `JuegoNavalIA` contiene el método `main` para ejecutar el juego.
+
+### 2.1. Métodos
+
+- `main(String[] args)`: Crea una instancia de `CuadriculaIA`, muestra el tablero antes de comenzar, posiciona automáticamente un barco con la IA, realiza disparos automáticos de la IA y muestra el estado actual del tablero.
+
+# Pseudocódigo
+
+```java
+Clase CuadriculaIA:
+    - tablero: char[][]
+    - simulacionAmbiental: int[][]
+    - random: Random
+
+    + CuadriculaIA(filas: int, columnas: int)
+    + mostrarTablero(): void
+    + depositarBarco(fila: int, columna: int, longitud: int, esHorizontal: boolean): void
+    + posicionarBarcoIA(longitud: int): void
+    + disparar(fila: int, columna: int): void
+    + ataqueIA(): void
+    + visualizacion(): void
+    - esPosicionValida(fila: int, columna: int): boolean
+    - esPosicionValidaParaBarco(fila: int, columna: int, longitud: int, esHorizontal: boolean): boolean
+
+Clase JuegoNavalIA:
+    - scanner: Scanner
+    - cuadricula: CuadriculaIA
+
+    + main(args: String[]): void
+
+```
