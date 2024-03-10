@@ -1,6 +1,141 @@
 link al repositorio: https://github.com/siraglez/entregaUd8TP.git
 
 
+# Ejercicio 1: Simulación de Batallas con Dados Virtuales y Realidad Aumentada
+
+## 1. Clase JugadorGuerraAR
+
+La clase `JugadorGuerraAR` representa a un jugador en el juego de guerra en realidad aumentada.
+
+### 1.1. Atributos:
+
+- `fichas`: Número de fichas del jugador.
+- `dadoVirtual`: Resultado del lanzamiento del dado virtual.
+- `nombre`: Nombre del jugador.
+
+### 1.2. Constructor:
+
+* Se inicializa la clase con el nombre del jugador y 10 fichas.
+
+### 1.3. Método lanzarDadoVirtual():
+
+* Genera un número aleatorio entre 1 y 6, simulando el lanzamiento de un dado virtual.
+
+### 1.4. Método simularBatalla(JugadorGuerraARvoponente):
+
+* Simula una batalla entre el jugador y un oponente.
+* Lanza dados virtuales para ambos jugadores.
+* Compara los resultados y actualiza las fichas según el resultado.
+
+### 1.5. Métodos de efectos visuales en realidad aumentada:
+
+* `animacionLanzamientoDado()`: Simula una animación en 3D para el lanzamiento del dado.
+* `efectoVictoriaAR()`, `efectoDerrotaAR()`, `efectoEmpateAR()`: Muestran mensajes de victoria, derrota o empate en realidad aumentada.
+* `mostrarEstadoFichasAR()`: Muestra el estado actual de las fichas en realidad aumentada.
+
+### 1.6. Método obtenerFichas():
+
+* Retorna el número actual de fichas del jugador.
+
+## 2. Clase Main:
+
+* En el método `main`, se crean dos instancias de `JugadorGuerraAR`: `jugador1` y `jugador2` con los nombres "Jimena" y "Lucía", respectivamente.
+* Un bucle `for` ejecuta el juego durante 5 rondas.
+* En cada ronda:
+  * Se muestra el número de la ronda.
+  * Se simula el lanzamiento del dado en 3D para ambos jugadores.
+  * Se simula la batalla entre los jugadores.
+  * Se muestran efectos visuales de vistoria, derrota o empate en realidad aumentada.
+  * Se muestra el estado actual de las fichas en realidad aumentada para ambos jugadores.
+
+# Pseudocódigo
+
+```java
+Clase JugadorGuerraAR:
+    Atributos:
+        fichas: entero
+        dadoVirtual: entero
+        nombre: cadena de caracteres
+
+    Constructor(nombre):
+        // Inicializa la clase con el nombre del jugador y 10 fichas
+        this.nombre = nombre
+        this.fichas = 10
+
+    Método lanzarDadoVirtual():
+        // Genera un número aleatorio entre 1 y 6 para simular el lanzamiento de un dado virtual
+        random = generarNúmeroAleatorioEntre(1, 6)
+        this.dadoVirtual = random
+
+    Método simularBatalla(oponente):
+        lanzarDadoVirtual()
+        oponente.lanzarDadoVirtual()
+
+        Imprimir(this.nombre + " lanzó un " + this.dadoVirtual)
+        Imprimir(oponente.nombre + " lanzó un " + oponente.dadoVirtual)
+
+        Si (this.dadoVirtual > oponente.dadoVirtual):
+            Imprimir(this.nombre + " gana la batalla.")
+            oponente.fichas--
+        Sino Si (this.dadoVirtual < oponente.dadoVirtual):
+            Imprimir(oponente.nombre + " gana la batalla.")
+            this.fichas--
+        Sino:
+            Imprimir("Empate. Ningún jugador pierde fichas.")
+
+    Método animacionLanzamientoDado():
+        Imprimir("Realizando animación de lanzamiento de dado en 3D")
+        // Código para animación en 3D
+
+    Método efectoVictoriaAR():
+        Imprimir("¡" + this.nombre + " ha ganado la batalla en realidad aumentada!")
+        // Código para efectos visuales en realidad aumentada
+
+    Método efectoDerrotaAR():
+        Imprimir("¡" + this.nombre + " ha perdido la batalla en realidad aumentada!")
+        // Código para efectos visuales en realidad aumentada
+
+    Método efectoEmpateAR():
+        Imprimir("La batalla ha terminado en empate en realidad aumentada.")
+        // Código para efectos visuales en realidad aumentada
+
+    Método mostrarEstadoFichasAR():
+        Imprimir("Estado actual de las fichas de " + this.nombre + " en realidad aumentada: " + this.fichas)
+        // Código para efectos visuales en realidad aumentada
+
+    Método obtenerFichas():
+        Retornar this.fichas
+
+Clase Main:
+    Método principal():
+        jugador1 = CrearInstancia(JugadorGuerraAR, "Jimena")
+        jugador2 = CrearInstancia(JugadorGuerraAR, "Lucía")
+
+        Para cada i en rango(1, 6):
+            Imprimir("--Ronda " + (i) + " --")
+
+            jugador1.animacionLanzamientoDado()
+            jugador2.animacionLanzamientoDado()
+
+            jugador1.simularBatalla(jugador2)
+
+            Si (jugador1.obtenerFichas() > 0):
+                jugador1.efectoVictoriaAR()
+                jugador2.efectoDerrotaAR()
+            Sino Si (jugador2.obtenerFichas() > 0):
+                jugador2.efectoVictoriaAR()
+                jugador1.efectoDerrotaAR()
+            Sino:
+                jugador1.efectoEmpateAR()
+                jugador2.efectoEmpateAR()
+
+            jugador1.mostrarEstadoFichasAR()
+            jugador2.mostrarEstadoFichasAR()
+
+            Imprimir()
+
+```
+
 
 # Ejercicio 2: Plataforma de E-Commerce con Recomendaciones Inteligentes y Análisis de Preferencias
 
