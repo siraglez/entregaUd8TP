@@ -1,0 +1,25 @@
+@startuml
+
+class JugadorGuerraAR {
+    - fichas: int
+    - dadoVirtual: int
+    - nombre: String
+
+    + JugadorGuerraAR(nombre: String)
+    + lanzarDadoVirtual(): void
+    + simularBatalla(oponente: JugadorGuerraAR): void
+    + animacionLanzamientoDado(): void
+    + efectoVictoriaAR(): void
+    + efectoDerrotaAR(): void
+    + efectoEmpateAR(): void
+    + mostrarEstadoFichasAR(): void
+    + obtenerFichas(): int
+}
+
+class Main {
+    + main(args: String[]): void
+}
+
+Main --> JugadorGuerraAR
+
+@enduml
